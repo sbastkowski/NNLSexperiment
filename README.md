@@ -32,19 +32,8 @@ This script reads in OTU table from biom file, a mapping file as well as optiona
 
 ### Command-line usage instructions:
 
-./run_example.R [-h] --otu_table otu.biom --mapping mapping.txt [--output output_prefix]
+./run_example.R [-h] --otu_table otu.biom --mapping mapping.txt [--output output_prefix] [--starter_communities "x y z"] [--target_communities "a b c d"] [--level taxanomix_level]
 
-
-
-  writeLines(c(strwrap("Reads in OTU table from biom file and calculates contribution of starter microbial communities to target communities."),
-               "\n\nRequired Arguments:\n",strwrap("--mapping : mapping filename in txt format."),
-               strwrap("--otu_table : OTU table in biom format."),
-               "\nOptional Arguments:\n",
-               strwrap("--output : prefix for output files."),
-               strwrap("--starter_communities : names of samples that refer to starter communities seperated by a space."),
-               strwrap("--target_communities : names of samples that refer to target communities seperated by a space."),
-               strwrap("--level : level to what to collapse the OTU table. Default: Family"),"\n"))
-  q(status=1);
 
 ### Required:
 
