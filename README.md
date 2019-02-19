@@ -1,6 +1,6 @@
 # NNLSexperiment
 
-A set of tools to analyse and plot the output from a BMG FLUOStar OMEGA plate reader.  
+A set of tools to reads in OTU table from biom file and calculate contribution of starter microbial communities to target communities.  
 
 
 ## Contents
