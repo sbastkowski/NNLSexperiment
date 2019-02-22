@@ -32,27 +32,30 @@ This script reads in OTU table from biom file, a mapping file as well as optiona
 
 ### Command-line usage instructions:
 
-./run_example.R [-h] --otu_table otu.biom --mapping mapping.txt [--output output_prefix] [--starter_communities "x y z"] [--target_communities "a b c d"] [--level taxanomix_level]
+./run_example.R [-h] --otu_table otu.biom --mapping mapping.txt --starter_communities "x y z" --target_communities "a b c d" [--output output_prefix] [--level taxanomix_level] [--pool]
 
 
 ### Required:
 
---otu_table : OTU table in biom format.
+--otu_table /-u : OTU table in biom format.
 
+--mapping / -m : mapping filename in txt format.
 
---mapping : mapping filename in txt format.
+--starter_communities / -s : names of samples that refer to starter communities seperated by a space. Note, that if you pool samples, you will need to use the poolnames.
+
+--target_communities / -t : names of samples that refer to target communities seperated by a space. Note, that if you pool samples, you will need to use the poolnames.
 
 
 ### Optional:
 
 
---output : prefix for output files.
+--output / -o : prefix for output files. (Default: output)
 
---starter_communities : names of samples that refer to starter communities seperated by a space.
+--level / -l : level to what to collapse the OTU table. (Default: Family)
+      Options: "Kingdom","Phylum", "Class", "Order", "Family", "Genus","Species"
 
---target_communities : names of samples that refer to target communities seperated by a space.
-
---level : level to what to collapse the OTU table. Default: Family
+--pool  / -p : samples to be pooled (average is used). A string specifying a pool as follows: 
+      "poolname1=sample1, sample2, sample3; poolname2=sample4, sample5, sample6, sample7; ..."
 
 
 Please see examples of input format in Data folder. 
@@ -60,7 +63,7 @@ Please see examples of input format in Data folder.
 A help menu can be accessed by running the script with -h.
 
 ## License
-GKinect is free software, licensed under [GPLv3](https://github.com/sbastkowski/GKinect/blob/master/software_license).
+NNLSexperiment is free software, licensed under [GPLv3](https://github.com/sbastkowski/NNLSexperiment/blob/master/software_license).
 
 ## Feedback/Issues
 Please report any issues to the [issues page](https://github.com/sbastkowski/NNLSexperiment/issues) or email sarah.bastkowski@quadram.ac.uk

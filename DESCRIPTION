@@ -1,14 +1,13 @@
 Package: NNLSexperiment
 Title: Calculates proportions of contribution of microbial communities to mixed communities.
 Version: 1.0.0
-Authors@R: person("First", "Sarah Bastkowski", email = "sarah.bastkowski@quadram.ac.uk", role = c("aut", "cre"))
+Authors@R: person("Sarah Bastkowski", "Sarah Bastkowski", email = "sarah.bastkowski@quadram.ac.uk", role = c("aut", "cre"))
 Description: What the package does (one paragraph).
-Depends: R (>= 3.5.2)
+Depends: R (>= 3.4.1)
 License: GPLv3
 Encoding: UTF-8
 LazyData: true
 Imports: 
-  biomformat,
   phyloseq,
   nnls,
   lattice,
