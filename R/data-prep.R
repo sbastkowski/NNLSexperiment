@@ -12,7 +12,7 @@ read_data <- function(biomfile, mappingfile, pool=NULL, cellcounts=NULL) {
     myPhyloSeq=norm_by_cellcount(myPhyloSeq, cellcountvalues = cellcounts)
   }
 
-  if(!missing(pool)){
+  if(!is.null(pool)){
     pool <- pool_to_df(myPhyloSeq, pool)
     OTU_pooled=pool_samples(myPhyloSeq, pool)
     myPhyloSeq <- phyloseq::merge_phyloseq(OTU_pooled, tax)

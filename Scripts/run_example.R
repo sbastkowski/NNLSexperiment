@@ -36,6 +36,7 @@ if(!is.null(opt$help) || is.null(opt$otu_table) || is.null(opt$mapping) || is.nu
                strwrap("--target_communities : names of samples that refer to target communities seperated by a space."),
                "\nOptional Arguments:\n",
                strwrap("--output : prefix for output files. (Default: output"),
+               strwrap("--pool : samples to be pooled (average is used). A string specifying a pool as follows: poolname1=sample1, sample2, sample3; poolname2=sample4, sample5, sample6, sample7; ... (Default:  none)"),
                strwrap("--level : level to what to collapse the OTU table. (Default: Family)"),"\n"))
   q(status=1);
 }
@@ -50,6 +51,9 @@ if ( is.null(opt$level ) ) {
   opt$level = "Family"
 }
 
+if ( is.null(opt$lpool ) ) {
+  writeLines(c(strwrap("No pooling of samples."),"\n"))
+}
 
 weightSolutions=run_nnls_analysis(opt$otu_table, opt$mapping, opt$starter_communities, opt$target_communities, opt$level, opt$pool)
 write.table(weightSolutions, sep="\t", paste0(opt$outfile, "_solutionWeights.txt"))
