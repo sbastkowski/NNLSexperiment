@@ -25,6 +25,17 @@ library("NNLSexperiment")
 
 
 For running the Scripts no package installation is necessary, but it requires R (at least version 3.5.2)
+## Docker
+
+To use Docker, please follow installation advice on https://docs.docker.com/
+
+To build the docker container go to NNLSexperiment folder using the terminal and run: 
+
+docker build --tag nnlsexperiment:v1 .
+
+to run the example script using the supplied example data, go into 'Data' folder and run:
+docker run --rm -v $PWD:/work nnlsexperiment:v1 --otu_table otu_table_complete.txt.biom --mapping mappingFile.txt --starter_communities "S01 S02 S03 S04 S05 S06 S07 S08 S09" --target_communities "S10 S11 S12 S13 S14 S15 S16 S17 S18 S19 S20 S21 S22 S23 S24 S25 S26 S27 S28 S29 S30"
+
 
 ## Script Usage
 
