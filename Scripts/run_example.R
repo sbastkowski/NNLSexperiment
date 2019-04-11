@@ -1,7 +1,7 @@
 #!/usr/bin/env Rscript
 
-# PODNAME: combineData.R
-# ABSTRACT: combineData.R
+# PODNAME: run_example.R
+# ABSTRACT: run_example.R
 
 if(!require(getopt)){install.packages("getopt", repos = "http://cran.us.r-project.org")}
 library("getopt")
@@ -51,7 +51,7 @@ if ( is.null(opt$level ) ) {
   opt$level = "Family"
 }
 
-if ( is.null(opt$lpool ) ) {
+if ( is.null(opt$pool ) ) {
   writeLines(c(strwrap("No pooling of samples."),"\n"))
 }
 

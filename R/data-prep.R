@@ -42,6 +42,7 @@ norm_by_cellcount <- function(phyloseqObj, cellcountvalues) {
 # single samples are treated as a pool as well, ie one row with zeros except one 1
 pool_samples<-function(phyloseqObj, pool) {
 
+
   pooledOTU <- rep(0,nrow(phyloseq::otu_table(phyloseqObj)))
   poolMatrix <- data.matrix(pool)
   for(i in 1:nrow(poolMatrix)){
