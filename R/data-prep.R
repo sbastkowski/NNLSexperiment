@@ -61,7 +61,7 @@ pool_samples<-function(phyloseqObj, pool) {
 }
 
 
-# Check if this works
+
 pool_to_df <- function(myPhyloseqObj, pool){
 
   pools <- strsplit(pool, ";")
