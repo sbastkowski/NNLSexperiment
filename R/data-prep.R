@@ -1,12 +1,19 @@
 read_data <- function(biomfile, mappingfile, pool=NULL, cellcounts=NULL) {
 
   data = phyloseq::import_biom(biomfile)
-  samples = phyloseq::import_qiime_sample_data(mappingfile)
+
+
   myTaxTable <- phyloseq::tax_table(data)
   colnames(myTaxTable) <- c("Kingdom","Phylum", "Class", "Order", "Family", "Genus","Species")
   otu = phyloseq::otu_table(data)
   tax = phyloseq::tax_table(myTaxTable)
   myPhyloSeq <- phyloseq::phyloseq(otu,tax)
+
+  if (!is.null(mappingfile)){
+    samples = phyloseq::import_qiime_sample_data(mappingfile)
+    colnames(myPhyloSeq@otu_table@.Data) = as.character(samples[[1]])
+  }
+
 
   if(!missing(cellcounts)){
     myPhyloSeq=norm_by_cellcount(myPhyloSeq, cellcountvalues = cellcounts)

@@ -25,16 +25,16 @@ opt = getopt(matrix( c('help', 'h', 0, "logical",
                        'level', 'l', 1, "character"), ncol=4, byrow=TRUE ) );
 
 
-if(!is.null(opt$help) || is.null(opt$otu_table) || is.null(opt$mapping) || is.null(opt$starter_communities) || is.null(opt$target_communities))
+if(!is.null(opt$help) || is.null(opt$otu_table) || is.null(opt$starter_communities) || is.null(opt$target_communities))
 {
   cat(paste("Usage: run_example.R [-h] --otu_table otu.biom --mapping mapping.txt [--output output_prefix]\n\n"));
   writeLines(c(strwrap("Reads in OTU table from biom file and calculates contribution of starter microbial communities to target communities."),
                "\n\nRequired Arguments:\n",
                strwrap("--otu_table : OTU table in biom format."),
-               strwrap("--mapping : mapping filename in txt format."),
                strwrap("--starter_communities : names of samples that refer to starter communities seperated by a space."),
                strwrap("--target_communities : names of samples that refer to target communities seperated by a space."),
                "\nOptional Arguments:\n",
+               strwrap("--mapping : mapping filename in txt format."),
                strwrap("--output : prefix for output files. (Default: output"),
                strwrap("--pool : samples to be pooled (average is used). A string specifying a pool as follows: poolname1=sample1, sample2, sample3; poolname2=sample4, sample5, sample6, sample7; ... (Default:  none)"),
                strwrap("--level : level to what to collapse the OTU table. (Default: Family)"),"\n"))
@@ -45,6 +45,12 @@ if ( is.null(opt$outfile ) ) {
   writeLines(c(strwrap("No out file name supplied. Output will be saved as output_solutionWeights.txt"),"\n"))
   opt$outfile = "output"
 }
+
+if ( is.null(opt$mapping ) ) {
+  writeLines(c(strwrap("No mapping file supplied. "),"\n"))
+  opt$mapping = NULL
+}
+
 
 if ( is.null(opt$level ) ) {
   writeLines(c(strwrap("No taxanomic level supplied. The OTUs are collapsed to Family level."),"\n"))
